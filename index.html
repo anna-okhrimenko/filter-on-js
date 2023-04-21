@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="filter-box">
+            <div class="filter-radio">
+                <input type="radio" id="genderFilterMale" name="genderFilter" value="male">
+                <label for="genderFilterMale">Male</label>
+                <input type="radio" id="genderFilterFemale" name="genderFilter" value="female">
+                <label for="genderFilterFemale">Female</label>
+                <input type="radio" id="all" name="genderFilter" value="all" checked>
+                <label for="all">Male&Female</label>
+            </div>
+            <div class="filter-range">
+                <input type="range" id="ageFilter" min="15" max="70" value="70">
+                <label for="ageFilter">Age</label>
+                <span id="ageFilterValue">70</span>
+            </div>
+
+        </div>
+        <div class="users">
+            <img src="" alt="">
+
+        </div>
+    </div>
+    <script src="assets/js/scrypt.js"></script>
+</body>
+</html>
