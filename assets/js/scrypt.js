@@ -262,6 +262,7 @@ const userArr = [{
 const peopleContainer = document.querySelector('.users');
 const genderFilterInputs = document.querySelectorAll('[type="radio"]');
 const ageFilter = document.getElementById('ageFilter');
+const sortSelect = document.getElementById('first-name');
 
 window.addEventListener('load', function() {
 
@@ -286,6 +287,7 @@ window.addEventListener('load', function() {
     let initialState = {
         age: 100,
         gender: 'all',
+        //sort: 'empty',
     }
 
     const firstUserByInitialState = userArr.filter(user => user.age <= initialState.age);
@@ -306,21 +308,57 @@ window.addEventListener('load', function() {
         initialState.age = val;
         filtered = submitFilter();
         renderTamplate(filtered);
-    })
+    });
+
+
 
     const submitFilter = () => {
         let filtered = userArr.filter(user => {
             if(initialState.gender !== 'all' && user.gender !== initialState.gender){
                 return false;
             }
-            console.log(user);
             if(user.age > initialState.age){
                 return false;
             }            
             return true;
-        
         });
         return filtered;
+    }
+
+    sortSelect.addEventListener('change', (e) => {
+        const val = e.target.value;
+        const sortParametr = val.split('.');
+        if(sortParametr[1] === 'avers') {
+            sortArray(sortParametr[0]);
+        }else{
+            sortArrayRevers(sortParametr[0]);
+        }
+        filtered = submitFilter();
+        renderTamplate(filtered);
+    });
+
+    const sortArray = (field) => {
+        userArr.sort(function (a, b) {
+            if (a[field] > b[field]) {
+                return 1;
+            } 
+            if (a[field] < b[field]) {
+                return -1;
+            }
+            return 0;
+        })
+    }
+    
+    const sortArrayRevers = (field) => {
+        userArr.sort(function (a, b) {
+            if (a[field] > b[field]) {
+                return -1;
+            } 
+            if (a[field] < b[field]) {
+                return 1;
+            }
+            return 0;
+        })
     }
 
     
