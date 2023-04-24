@@ -263,6 +263,7 @@ const peopleContainer = document.querySelector('.users');
 const genderFilterInputs = document.querySelectorAll('[type="radio"]');
 const ageFilter = document.getElementById('ageFilter');
 const sortSelect = document.getElementById('first-name');
+const searchBox = document.getElementById('search');
 
 window.addEventListener('load', function() {
 
@@ -287,7 +288,7 @@ window.addEventListener('load', function() {
     let initialState = {
         age: 100,
         gender: 'all',
-        //sort: 'empty',
+        name: '',
     }
 
     const firstUserByInitialState = userArr.filter(user => user.age <= initialState.age);
@@ -310,6 +311,14 @@ window.addEventListener('load', function() {
         renderTamplate(filtered);
     });
 
+    searchBox.addEventListener('keyup', (e) => {
+        const val = e.target.value;
+        initialState.name = val;
+        filtered = submitFilter();
+        renderTamplate(filtered);
+
+    });
+
 
 
     const submitFilter = () => {
@@ -317,7 +326,12 @@ window.addEventListener('load', function() {
             if(initialState.gender !== 'all' && user.gender !== initialState.gender){
                 return false;
             }
-            if(user.age > initialState.age){
+            if(user.age > initialState.age) {
+                return false;
+            }
+            const userName = user.name.toLowerCase();
+            const initialSrc = initialState.name.toLowerCase();
+            if(!userName.includes(initialSrc)) {
                 return false;
             }            
             return true;
@@ -361,6 +375,6 @@ window.addEventListener('load', function() {
         })
     }
 
-    
+        
 });
 

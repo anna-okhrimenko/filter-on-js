@@ -55,6 +55,14 @@ body {
     margin-right: 15px;
 }
 
+.search-box {
+    margin-left: 50px;
+}
+
+.search-box input {
+    padding: 0 5px;
+}
+
 .users {
     display: flex;
     flex-wrap: wrap;
