@@ -53,7 +53,20 @@ body {
 
 .sort-select label {
     margin-right: 15px;
+    margin-left: 15px;
 }
+
+.nice-select {
+    color: black;
+}
+
+.nice-select {
+    width: 99px;
+}
+
+.nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus {
+    background-color: #bcf676;
+} 
 
 .search-box {
     margin-left: 50px;

@@ -1,3 +1,7 @@
+$(document).ready(function() {
+    $('#first-name').niceSelect();
+});
+
 const userArr = [{
         id: 1,
         name: "Mark Zuckerberg",
