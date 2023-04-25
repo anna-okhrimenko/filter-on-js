@@ -76,6 +76,19 @@ body {
     padding: 0 5px;
 }
 
+input[type=search] {
+	-webkit-appearance: none;
+	width: 175px; 
+	height: 29px;
+	border: none; 
+	padding-left: 10px;
+	padding-right: 10px;
+	-moz-box-sizing: border-box;
+}
+input[type="search"]:focus {
+	outline: none; 
+}
+
 .users {
     display: flex;
     flex-wrap: wrap;
