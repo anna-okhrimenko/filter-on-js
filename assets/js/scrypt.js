@@ -1,6 +1,11 @@
-// $(document).ready(function() {
-//     $('#first-name').niceSelect();
-// });
+$(document).ready(function() {
+    // заглушка для найс селект
+    $(document).on('change', '#first-name', function(e) {          
+        e.target.dispatchEvent(new Event('change'));
+    });
+
+    $('#first-name').niceSelect();
+});
 
 const userArr = [{
         id: 1,
@@ -324,7 +329,7 @@ window.addEventListener('load', function() {
     });
 
 
-
+    // поиск
     const submitFilter = () => {
         let filtered = userArr.filter(user => {
             if(initialState.gender !== 'all' && user.gender !== initialState.gender){
@@ -343,9 +348,10 @@ window.addEventListener('load', function() {
         return filtered;
     }
 
+
+    // сортировка
     sortSelect.addEventListener('change', (e) => {
         const val = e.target.value;
-        console.log(1);
         const sortParametr = val.split('.');
         if(sortParametr[1] === 'avers') {
             sortArray(sortParametr[0]);
