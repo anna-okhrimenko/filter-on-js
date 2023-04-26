@@ -1,6 +1,6 @@
-$(document).ready(function() {
-    $('#first-name').niceSelect();
-});
+// $(document).ready(function() {
+//     $('#first-name').niceSelect();
+// });
 
 const userArr = [{
         id: 1,
@@ -345,6 +345,7 @@ window.addEventListener('load', function() {
 
     sortSelect.addEventListener('change', (e) => {
         const val = e.target.value;
+        console.log(1);
         const sortParametr = val.split('.');
         if(sortParametr[1] === 'avers') {
             sortArray(sortParametr[0]);
